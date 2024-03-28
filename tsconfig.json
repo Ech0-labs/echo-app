@@ -1,41 +1,21 @@
 {
-  "compilerOptions": {
-    "target": "ES2021",
-    "module": "commonjs",
-    "lib": [
-      "dom",
-      "ES2021",
-      "esnext.asynciterable"
-    ],
-    "jsx": "react",
-
-    "sourceMap": true,
-
-    "composite": true,
-    "tsBuildInfoFile": "./build/incremental.tsbuildinfo",
-
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "pretty": false,
-    "removeComments": true,
-
-    "skipLibCheck": true,
-
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-
-    "noImplicitThis": false,
-    "strictNullChecks": true,
-    "alwaysStrict": true,
-
-    "esModuleInterop": true,
-
-
-    "preserveWatchOutput": true,
-
-    "baseUrl": "./src",
-    "rootDir": "./src",
-    "outDir": "./build"
-  },
-  "buildOnSave:": true
+	"compilerOptions": {
+		"removeComments": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"target": "es2017",
+		"sourceMap": true,
+		"moduleResolution": "node",
+		"incremental": true,
+		"jsx": "react",
+		"outDir": "dist",
+		"lib": [
+			"es5",
+			"es6",
+			"dom",
+			"dom.iterable"
+		]
+	}
 }
