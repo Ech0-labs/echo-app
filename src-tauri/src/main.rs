@@ -1,27 +1,15 @@
-#![cfg_attr(
-  all(not(debug_assertions), target_os = "windows"),
-  windows_subsystem = "windows"
-)]
+// Prevents additional console window on Windows in release, DO NOT REMOVE!!
+#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-mod menu;
-
-#[derive(serde::Serialize)]
-struct CustomResponse {
-  message: String,
-}
-
+// Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
-async fn message_from_rust(window: tauri::Window) -> Result<CustomResponse, String> {
-  println!("Called from {}", window.label());
-  Ok(CustomResponse {
-    message: "Hello from rust!".to_string()
-  })
+fn greet(name: &str) -> String {
+    format!("Hello, {}! You've been greeted from Rust!", name)
 }
 
 fn main() {
-  tauri::Builder::default()
-    .invoke_handler(tauri::generate_handler![message_from_rust])
-    .menu(menu::get_menu())
-    .run(tauri::generate_context!())
-    .expect("error while running tauri application");
+    tauri::Builder::default()
+        .invoke_handler(tauri::generate_handler![greet])
+        .run(tauri::generate_context!())
+        .expect("error while running tauri application");
 }
