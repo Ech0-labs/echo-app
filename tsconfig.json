@@ -18,8 +18,20 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./src",
+    "rootDir": "./src",
+    "outDir": "./build",
+    "paths": {
+      "@services/*": [ "services/*" ],
+      "@pages/*": [ "pages/*" ],
+      "@components/*": [ "components/*" ],
+      "@utils/*": [ "utils/*" ],
+    }
   },
-  "include": ["src"],
+  "include": [
+    "/src/**/*.ts",
+    "./src/**/*.tsx",
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
